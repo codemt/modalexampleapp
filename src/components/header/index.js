@@ -13,10 +13,10 @@ import Modal from 'react-responsive-modal';
 
                 name : '',
                 interest: '',
-                email:'',
-                phone:''
     
             };
+
+            this.handleChange = this.handleChange.bind(this);
 
     }
     
@@ -34,24 +34,52 @@ import Modal from 'react-responsive-modal';
     this.setState({ openFirstModal: false });
   };
 
-  onOpenSecondModal = () => {
+  onOpenSecondModal = (e) => {
+
+      e.preventDefault();
+      const name = e.target.name.value;
+     console.log(name);
     this.setState({ openSecondModal: true });
   };
 
   onCloseSecondModal = () => {
+
+   
     this.setState({ openSecondModal: false });
   };
+
+  handleChange = (e) => {
+
+      
+      e.preventDefault();
+      // Set State , and log new value of state.
+      this.setState({ [e.target.name]: e.target.value }, () => {
+        console.log("Name is:", this.state.name);
+        console.log("Interest is :", this.state.interest);
+      });
+      
+  }
+
+  submitData = (e) => {
+
+
+        console.log(this.state.name);
+        console.log(this.state.interest);
+
+
+  }
+  
 
 
   render() {
     const { openFirstModal, openSecondModal } = this.state;
-    const littleLorem = (
-        <input type="text" placeholder="Enter Name" />
+    const Name = (
+        <input type="text" placeholder="Enter Name"   onChange={this.handleChange}  name="name"  />
       );
 
       const Sport = (
 
-            <input type="text" placeholder="Enter Sports Name" />
+            <input type="text" placeholder="Enter Your Interest " onChange={this.handleChange} name="interest"  />
 
       );
 
@@ -66,15 +94,15 @@ import Modal from 'react-responsive-modal';
                     <div className="example">
                     <Modal open={openFirstModal} onClose={this.onCloseFirstModal} center>
                       <p>Enter Your Name </p>
-                      {littleLorem}
+                      {Name}
                       <button className="btn btn-action" onClick={this.onOpenSecondModal}>
                         Submit
                       </button>
                     </Modal>
                     <Modal open={openSecondModal} onClose={this.onCloseSecondModal} center>
-                      <p>Your Favorite Sport </p>
+                      <p>What are you Interested in ? </p>
                       {Sport}
-                      <button className="btn btn-action" onClick={this.onOpenSecondModal}>
+                      <button className="btn btn-action" onClick={this.submitData}>
                         Submit
                       </button>
                     </Modal>
