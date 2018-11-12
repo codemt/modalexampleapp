@@ -13,6 +13,8 @@ import Modal from 'react-responsive-modal';
 
                 name : '',
                 interest: '',
+                email : '',
+                phone : ''
     
             };
 
@@ -23,6 +25,8 @@ import Modal from 'react-responsive-modal';
     state = {
         openFirstModal: false,
         openSecondModal: false,
+        openThirdModal : false,
+        openFourthModal : false
       };
     
      
@@ -34,18 +38,39 @@ import Modal from 'react-responsive-modal';
     this.setState({ openFirstModal: false });
   };
 
-  onOpenSecondModal = (e) => {
+  onOpenSecondModal = () => {
 
-      e.preventDefault();
-      const name = e.target.name.value;
-     console.log(name);
     this.setState({ openSecondModal: true });
+
   };
 
   onCloseSecondModal = () => {
 
    
     this.setState({ openSecondModal: false });
+  };
+
+  onOpenThirdModal = () => {
+
+    this.setState({ openThirdModal: true });
+    
+  };
+
+  onCloseThirdModal = () => {
+
+   
+    this.setState({ openThirdModal: false });
+  };
+  onOpenFourthModal = () => {
+
+      this.setState({ openFourthModal: true });
+    
+  };
+
+  onCloseFourthModal = () => {
+
+   
+      this.setState({ openFourthModal: false });
   };
 
   handleChange = (e) => {
@@ -56,6 +81,8 @@ import Modal from 'react-responsive-modal';
       this.setState({ [e.target.name]: e.target.value }, () => {
         console.log("Name is:", this.state.name);
         console.log("Interest is :", this.state.interest);
+        console.log("Interest is :", this.state.email);
+        console.log("Interest is :", this.state.phone);
       });
       
   }
@@ -65,21 +92,34 @@ import Modal from 'react-responsive-modal';
 
         console.log(this.state.name);
         console.log(this.state.interest);
-
+        console.log(this.state.email);
+        console.log(this.state.phone);
 
   }
   
 
 
   render() {
-    const { openFirstModal, openSecondModal } = this.state;
+    const { openFirstModal, openSecondModal,openThirdModal ,openFourthModal} = this.state;
     const Name = (
         <input type="text" placeholder="Enter Name"   onChange={this.handleChange}  name="name"  />
       );
 
-      const Sport = (
+      const Interest = (
 
             <input type="text" placeholder="Enter Your Interest " onChange={this.handleChange} name="interest"  />
+
+      );
+
+      const Email = (
+
+        <input type="text" placeholder="Enter Your Email" onChange={this.handleChange} name="email"  />
+
+      );
+
+      const Phone = (
+
+        <input type="text" placeholder="Enter Your Phone" onChange={this.handleChange} name="phone"  />
 
       );
 
@@ -101,11 +141,25 @@ import Modal from 'react-responsive-modal';
                     </Modal>
                     <Modal open={openSecondModal} onClose={this.onCloseSecondModal} center>
                       <p>What are you Interested in ? </p>
-                      {Sport}
-                      <button className="btn btn-action" onClick={this.submitData}>
+                      {Interest}
+                      <button className="btn btn-action" onClick={this.onOpenThirdModal}>
                         Submit
                       </button>
                     </Modal>
+                    <Modal open={openThirdModal} onClose={this.onCloseThirdModal} center>
+                    <p> Can you give us your ? </p>
+                    {Email}
+                    <button className="btn btn-action" onClick={this.onOpenFourthModal}>
+                      Submit
+                    </button>
+                  </Modal>
+                  <Modal open={openFourthModal} onClose={this.onCloseFourthModal} center>
+                    <p> Please Share your Phone no. ? </p>
+                    {Phone}
+                    <button className="btn btn-action" onClick={this.submitData}>
+                      Submit
+                    </button>
+                  </Modal>
                   </div>
  
                     
