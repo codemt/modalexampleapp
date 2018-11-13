@@ -122,11 +122,14 @@ import axios from 'axios';
 
         setTimeout(() => {
 
+             
+            
+            // return <img alt="loader"  src="https://upload.wikimedia.org/wikipedia/commons/b/b1/Loading_icon.gif"/>
              window.location = "/inquiries";
 
-          },2000)
+          },1000)
   
-       
+          
 
   }
   

@@ -40,7 +40,9 @@ class InquiryContainer extends Component {
           <div class="row">
               <div class="col-lg-12 text-center">
                   <h2 class="text-uppercase section-heading">Inquiries Received</h2>
+                  <a href="/">Back Home </a>
               </div>
+             
           </div>
           <div class="row text-center">
                 <table class="table table-hover">
