@@ -105,7 +105,7 @@ import axios from 'axios';
           
         // })
 
-        axios.post('http://127.0.0.1:8000/api/inquiry', {
+        axios.post('https://inquiryapi.herokuapp.com/api/inquiry', {
           name: this.state.name,
           interest: this.state.interest,
           email : this.state.email,

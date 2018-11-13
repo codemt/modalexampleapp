@@ -13,7 +13,7 @@ class InquiryContainer extends Component {
       {
         console.log('called');
   
-              fetch('http://127.0.0.1:8000/api/inquiry')
+              fetch('https://inquiryapi.herokuapp.com/api/inquiry')
             .then((response) => response.json())
             .then((responseJson) => {
               console.log(responseJson);
