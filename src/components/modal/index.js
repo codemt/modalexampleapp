@@ -183,7 +183,7 @@ import axios from 'axios';
                       </button>
                     </Modal>
                     <Modal open={openThirdModal} onClose={this.onCloseThirdModal} center>
-                    <p> Can you give us your ? </p>
+                    <p> Can you give us your Email ID  ? </p>
                     {Email}
                     <button className="btn btn-action" onClick={this.onOpenFourthModal}>
                       Submit
