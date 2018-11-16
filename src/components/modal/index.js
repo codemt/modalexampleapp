@@ -106,28 +106,43 @@ import axios from 'axios';
         // })
 
         axios.post('https://inquiryapi.herokuapp.com/api/inquiry', {
+          headers: {
+            'content-type': 'application/json',
+          },
           name: this.state.name,
           interest: this.state.interest,
           email : this.state.email,
           phone : this.state.phone
-        })
+        },)
         .then(function (response) {
-          console.log(response);
-         // return <Redirect to='/inquiries' />
-        })
-        .catch(function (error) {
-          console.log(error);
-        });
-       
 
-        setTimeout(() => {
+
+
+          console.log(response);
+             setTimeout(() => {
 
              
             
             // return <img alt="loader"  src="https://upload.wikimedia.org/wikipedia/commons/b/b1/Loading_icon.gif"/>
              window.location = "/inquiries";
 
-          },1000)
+            },1000)
+         // return <Redirect to='/inquiries' />
+            })
+        .catch(function (error) {
+          console.log(error);
+          alert('some error Occured');
+        });
+       
+
+        // setTimeout(() => {
+
+             
+            
+        //     // return <img alt="loader"  src="https://upload.wikimedia.org/wikipedia/commons/b/b1/Loading_icon.gif"/>
+        //      window.location = "/inquiries";
+
+        //   },1000)
   
           
 
